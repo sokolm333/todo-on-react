@@ -1,7 +1,6 @@
 import React from 'react';
 
 const TodoItem = (props) => {
-
   return (
     <li className={props.todo.done ? "todo__item todo__item--done" : "todo__item"} onClick={() => props.toggle(props.todo)}>
       <div className='todo__content'>

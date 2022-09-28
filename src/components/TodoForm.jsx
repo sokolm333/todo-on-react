@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import OvalButton from './UI/button/OvalButton';
 
-const TodoForm = ({ create, ...props }) => {
+const TodoForm = ({ visible, create, ...props }) => {
+  const inputRef = useRef();
   const [todo, setTodo] = useState({ title: '', done: false });
   const addNewTodo = (e) => {
     e.preventDefault();
@@ -16,9 +17,13 @@ const TodoForm = ({ create, ...props }) => {
     setTodo({ title: '', done: false });
   }
 
+  if (visible !== undefined && visible) {
+    inputRef.current.focus();
+  }
+
   return (
     <form className='todo__form'>
-      <input className='todo__form-input' value={todo.title} onChange={e => setTodo({ ...todo, title: e.target.value })} type='text' placeholder={props.inputPlaceholder} />
+      <input ref={inputRef} className='todo__form-input' value={todo.title} onChange={e => setTodo({ ...todo, title: e.target.value })} type='text' placeholder={props.inputPlaceholder} />
       <OvalButton fill='true' onClick={addNewTodo} >{props.buttonText}</OvalButton>
     </form>
   );

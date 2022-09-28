@@ -2,7 +2,6 @@ import React from 'react';
 import cl from './ModalWindow.module.css';
 
 const ModalWindow = ({ children, visible, setVisible }) => {
-
   const rootClasses = [cl.ModalWindow]
 
   if (visible) {

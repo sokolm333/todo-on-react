@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/Nullstyle.css';
 import './styles/Variables.css';
 import './styles/App.css';
@@ -12,25 +12,42 @@ import { useTodos } from './components/hooks/useTodos';
 
 function App() {
   const [todos, setTodos] = useState([
-    { id: 1664309976799, title: 'This is TodoItem Title 3', done: false },
-    { id: 1664309976791, title: 'This is TodoItem Title 2This is TodoItem Title 2This is TodoItem Title 2This is TodoItem Title 2', done: false },
-    { id: 1664309976792, title: 'This is TodoItem Title 2', done: true },
-    { id: 1664309976793, title: 'This is TodoItem Title 2', done: false },
-    { id: 1664309976794, title: 'This is TodoItem Title 2', done: false },
-    { id: 1664309976795, title: 'This is TodoItem Title 2', done: true },
-    { id: 1664309976796, title: 'This is TodoItem Title 2', done: true },
-    { id: 1664309976781, title: 'This is TodoItem Title 3', done: false },
-    { id: 1664309976782, title: 'This is TodoItem Title 3', done: false },
-    { id: 1664309976783, title: 'This is TodoItem Title 3', done: false },
-    { id: 1664309976784, title: 'This is TodoItem Title 3', done: true },
-    { id: 1664309976785, title: 'This is TodoItem Title 3', done: false },
-    { id: 1664309976786, title: 'This is TodoItem Title 3', done: false },
-    { id: 1664309976797, title: 'This is TodoItem Title 2', done: true },
-    { id: 1664309976798, title: 'This is TodoItem Title 1', done: false }
+    // { id: 1664309976799, title: 'This is TodoItem Title 3', done: false },
+    // { id: 1664309976791, title: 'This is TodoItem Title 2This is TodoItem Title 2This is TodoItem Title 2This is TodoItem Title 2', done: false },
+    // { id: 1664309976792, title: 'This is TodoItem Title 2', done: true },
+    // { id: 1664309976793, title: 'This is TodoItem Title 2', done: false },
+    // { id: 1664309976794, title: 'This is TodoItem Title 2', done: false },
+    // { id: 1664309976795, title: 'This is TodoItem Title 2', done: true },
+    // { id: 1664309976796, title: 'This is TodoItem Title 2', done: true },
+    // { id: 1664309976781, title: 'This is TodoItem Title 3', done: false },
+    // { id: 1664309976782, title: 'This is TodoItem Title 3', done: false },
+    // { id: 1664309976783, title: 'This is TodoItem Title 3', done: false },
+    // { id: 1664309976784, title: 'This is TodoItem Title 3', done: true },
+    // { id: 1664309976785, title: 'This is TodoItem Title 3', done: false },
+    // { id: 1664309976786, title: 'This is TodoItem Title 3', done: false },
+    // { id: 1664309976797, title: 'This is TodoItem Title 2', done: true },
+    // { id: 1664309976798, title: 'This is TodoItem Title 1', done: false }
   ]);
   const [filter, setFilter] = useState({ sort: '', query: '' });
   const [modal, setModal] = useState(false);
   const sortedAndSearchedTodossWithCustomHook = useTodos(todos, filter.sort, filter.query);
+
+  // let todosStorage = localStorage.getItem('arrayOfTodos');
+  // if (todosStorage) {
+  //   console.log('todosStorage');
+  // }
+
+  // useEffect(() => {
+  //   console.log('pullToLocalStorage');
+  //   // console.log(JSON.stringify(todos));
+  //   localStorage.setItem('arrayOfTodos', JSON.stringify(todos));
+  //   // console.log(JSON.parse(localStorage.getItem('arrayOfTodos')));
+  //   // array
+  //   //     localStorage.removeItem('active_tab');
+  //   // localStorage.setItem('active_tab', activePane.id);
+  //   // let tabStorage = localStorage.getItem('active_tab');
+  //   // if (tabStorage) {
+  // }, [todos]);
 
   const createTodo = (newTodo) => {
     setTodos([...todos, newTodo]);
@@ -60,7 +77,7 @@ function App() {
           <h2 className='todo__title'>What’s your plan for today?</h2>
 
           <ModalWindow visible={modal} setVisible={setModal}>
-            <TodoForm create={createTodo} buttonText='Add' inputPlaceholder='My plan for today...' />
+            <TodoForm visible={modal} create={createTodo} buttonText='Add' inputPlaceholder='My plan for today...' />
           </ModalWindow>
 
           <TodoFilter filter={filter} setFilter={setFilter} selectDefaultValue='Sort By' filterPlaceholder='Search...' />
