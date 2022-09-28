@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import './styles/Nullstyle.css';
+import './styles/Variables.css';
 import './styles/App.css';
 import TodoList from './components/TodoList';
-import OvalButton from './components/UI/button/OvalButton';
 import TodoForm from './components/TodoForm';
 import TodoFilter from './components/TodoFilter';
+import OvalButton from './components/UI/button/OvalButton';
 import ModalWindow from './components/UI/modal/ModalWindow';
-import { useTodos } from './components/hooks/useTodos';
 import Counter from './components/UI/counter/Counter';
+import { useTodos } from './components/hooks/useTodos';
 
 function App() {
   const [todos, setTodos] = useState([
     { id: 1664309976799, title: 'This is TodoItem Title 3', done: false },
-    { id: 1664309976791, title: 'This is TodoItem Title 2This is TodoItem Title 2This is TodoItem Title 2This is TodoItem Title 2', done: false },
+    // { id: 1664309976791, title: 'This is TodoItem Title 2This is TodoItem Title 2This is TodoItem Title 2This is TodoItem Title 2', done: false },
     { id: 1664309976792, title: 'This is TodoItem Title 2', done: true },
     { id: 1664309976793, title: 'This is TodoItem Title 2', done: false },
     { id: 1664309976794, title: 'This is TodoItem Title 2', done: false },
@@ -56,13 +57,14 @@ function App() {
       <div className='todo__inner-wrap'>
         <div className='todo__inner'>
           <h1 className='todo__title visually-hidden'>To-Do List</h1>
+          <h2 className='todo__title'>What’s your plan for today?</h2>
 
           <ModalWindow visible={modal} setVisible={setModal}>
-            <TodoForm create={createTodo} />
+            <TodoForm create={createTodo} buttonText='Add' inputPlaceholder='My plan for today...' />
           </ModalWindow>
 
-          <TodoFilter filter={filter} setFilter={setFilter} />
-          <TodoList remove={removeTodo} toggle={toggleTodo} todos={sortedAndSearchedTodossWithCustomHook} title={'What’s your plan for today?'} />
+          <TodoFilter filter={filter} setFilter={setFilter} selectDefaultValue='Sort By' filterPlaceholder='Search...' />
+          <TodoList remove={removeTodo} toggle={toggleTodo} todos={sortedAndSearchedTodossWithCustomHook} />
 
           <div className='todo__main-btn'>
             <OvalButton fill='true' onClick={() => setModal(true)}>Add new task</OvalButton>

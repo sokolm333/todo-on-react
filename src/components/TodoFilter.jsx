@@ -1,17 +1,17 @@
 import React from 'react';
 import CustomSelect from './UI/select/CustomSelect';
 
-const TodoFilter = ({ filter, setFilter }) => {
+const TodoFilter = ({ filter, setFilter, ...props }) => {
   return (
     <div>
-      <input placeholder='search...'
+      <input placeholder={props.filterPlaceholder}
         value={filter.query}
         onChange={e => setFilter({ ...filter, query: e.target.value })}
       />
       <CustomSelect
         value={filter.sort}
         onChange={selectedSort => setFilter({ ...filter, sort: selectedSort })}
-        defaultValue="Choose"
+        defaultValue={props.selectDefaultValue}
         options={[
           { value: 'title', name: 'Title' },
           { value: 'id-top', name: 'Creation | Top' },

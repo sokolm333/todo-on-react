@@ -2,6 +2,11 @@ import React from 'react';
 import TodoItem from './TodoItem';
 
 const TodoList = ({ todos, title, remove, toggle }) => {
+  let listTitle = '';
+
+  if (title !== undefined) {
+    listTitle = <h2 className='todo__title'> {title} </h2>;
+  }
 
   if (!todos.length) {
     return (
@@ -11,13 +16,11 @@ const TodoList = ({ todos, title, remove, toggle }) => {
 
   return (
     <div className='todo__list-wrap'>
-      <h2 className='todo__title'>
-        {title}
-      </h2>
+      {listTitle}
       <ul className='todo__list'>
         {
           todos.map((todoValue, index) =>
-            <TodoItem remove={remove} toggle={toggle} number={index + 1} todo={todoValue} key={todoValue.id} />
+            <TodoItem remove={remove} toggle={toggle} todo={todoValue} key={todoValue.id} />
           )
         }
       </ul>

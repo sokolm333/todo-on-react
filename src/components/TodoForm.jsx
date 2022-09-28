@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import OvalButton from './UI/button/OvalButton';
 
-const TodoForm = ({ create }) => {
+const TodoForm = ({ create, ...props }) => {
   const [todo, setTodo] = useState({ title: '', done: false });
   const addNewTodo = (e) => {
     e.preventDefault();
@@ -17,9 +17,9 @@ const TodoForm = ({ create }) => {
   }
 
   return (
-    <form className='app__form'>
-      <input value={todo.title} onChange={e => setTodo({ ...todo, title: e.target.value })} type='text' placeholder='todo Title' />
-      <OvalButton fill='true' onClick={addNewTodo} >Add</OvalButton>
+    <form className='todo__form'>
+      <input className='todo__form-input' value={todo.title} onChange={e => setTodo({ ...todo, title: e.target.value })} type='text' placeholder={props.inputPlaceholder} />
+      <OvalButton fill='true' onClick={addNewTodo} >{props.buttonText}</OvalButton>
     </form>
   );
 };

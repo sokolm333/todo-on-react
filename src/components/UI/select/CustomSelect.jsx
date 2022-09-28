@@ -3,7 +3,6 @@ import React from 'react';
 const CustomSelect = ({ options, defaultValue, value, onChange }) => {
   return (
     <div>
-      Sort By:
       <select
         value={value}
         onChange={event => onChange(event.target.value)}
