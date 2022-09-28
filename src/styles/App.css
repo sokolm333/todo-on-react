@@ -1,0 +1,53 @@
+/* "Visually hidden" site element */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  color: saddlebrown;
+}
+
+#root {
+  padding: 10px;
+
+  background-color: #ffffff;
+}
+
+.app {
+  width: 800px;
+  padding: 10px 30px 30px;
+  margin: 0 auto;
+  font-family: monospace;
+}
+
+.app__title {
+  display: block;
+  margin: 30px 0 0;
+  padding: 10px;
+  border: 2px solid saddlebrown;
+  text-align: center;
+}
+
+.app__form {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.app__no-todos {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 30px;
+  border-bottom: 2px solid saddlebrown;
+}

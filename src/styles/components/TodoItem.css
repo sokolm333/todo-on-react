@@ -1,0 +1,56 @@
+.todo * {
+  margin: 0;
+}
+
+.todo {
+  margin: 10px 0;
+  padding: 30px 10px;
+  border: 2px solid rgb(139, 19, 19);
+  background-color: rgb(247, 228, 228);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo.done {
+  background-color: yellow;
+}
+
+.todo__content {
+  padding-right: 30px;
+}
+
+.todo__title {
+  font-family: sans-serif;
+  color: rgb(139, 19, 19);
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.todo__text {
+  font-family: sans-serif;
+
+  color: rgb(139, 19, 19);
+  margin: 0;
+  font-size: 14px;
+}
+
+.todo__btn {
+  font-family: sans-serif;
+  font-size: 14px;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid rgb(139, 19, 19);
+  color: rgb(139, 19, 19);
+  transition: all 0.3s ease;
+}
+
+.todo__btn:hover {
+  cursor: pointer;
+  background-color: rgb(139, 19, 19);
+  color: rgb(247, 228, 228);
+}
+
+.todo__btn:not(:last-child) {
+  margin-right: 10px;
+}
