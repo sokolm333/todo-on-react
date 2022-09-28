@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-const TodoList = ({ todos, title, remove, toggle }) => {
+const TodoList = ({ todos, title, remove, toggle, nothingFoundText }) => {
   let listTitle = '';
 
   if (title !== undefined) {
@@ -10,7 +10,11 @@ const TodoList = ({ todos, title, remove, toggle }) => {
 
   if (!todos.length) {
     return (
-      <p className='app__no-todos'>There are no todos :(</p>
+      <div className='todo__list todo__list--no-todos'>
+        <div className='todo__list-no-todos'>
+          <p className='todo__no-todos-text'>{nothingFoundText}</p>
+        </div>
+      </div>
     )
   }
 

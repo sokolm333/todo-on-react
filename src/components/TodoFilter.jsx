@@ -3,11 +3,13 @@ import CustomSelect from './UI/select/CustomSelect';
 
 const TodoFilter = ({ filter, setFilter, ...props }) => {
   return (
-    <div>
-      <input placeholder={props.filterPlaceholder}
-        value={filter.query}
-        onChange={e => setFilter({ ...filter, query: e.target.value })}
-      />
+    <div className='todo__filters-wrap'>
+      <div className='todo__search-wrap'>
+        <input className='todo__search' placeholder={props.filterPlaceholder}
+          value={filter.query}
+          onChange={e => setFilter({ ...filter, query: e.target.value })}
+        />
+      </div>
       <CustomSelect
         value={filter.sort}
         onChange={selectedSort => setFilter({ ...filter, sort: selectedSort })}

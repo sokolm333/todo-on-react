@@ -6,12 +6,10 @@
   right: 0;
   left: 0;
   background-color: var(--modal-bg-color);
-  /* display: none; */
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: opacity var(--transition), z-index var(--transition);
 }
 
 .ModalWindowContent {

@@ -13,7 +13,7 @@ import { useTodos } from './components/hooks/useTodos';
 function App() {
   const [todos, setTodos] = useState([
     { id: 1664309976799, title: 'This is TodoItem Title 3', done: false },
-    // { id: 1664309976791, title: 'This is TodoItem Title 2This is TodoItem Title 2This is TodoItem Title 2This is TodoItem Title 2', done: false },
+    { id: 1664309976791, title: 'This is TodoItem Title 2This is TodoItem Title 2This is TodoItem Title 2This is TodoItem Title 2', done: false },
     { id: 1664309976792, title: 'This is TodoItem Title 2', done: true },
     { id: 1664309976793, title: 'This is TodoItem Title 2', done: false },
     { id: 1664309976794, title: 'This is TodoItem Title 2', done: false },
@@ -64,7 +64,7 @@ function App() {
           </ModalWindow>
 
           <TodoFilter filter={filter} setFilter={setFilter} selectDefaultValue='Sort By' filterPlaceholder='Search...' />
-          <TodoList remove={removeTodo} toggle={toggleTodo} todos={sortedAndSearchedTodossWithCustomHook} />
+          <TodoList remove={removeTodo} toggle={toggleTodo} todos={sortedAndSearchedTodossWithCustomHook} nothingFoundText='There are no tasks here :(' />
 
           <div className='todo__main-btn'>
             <OvalButton fill='true' onClick={() => setModal(true)}>Add new task</OvalButton>
