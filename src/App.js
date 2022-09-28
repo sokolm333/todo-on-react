@@ -12,6 +12,18 @@ import Counter from './components/UI/counter/Counter';
 function App() {
   const [todos, setTodos] = useState([
     { id: 1664309976799, title: 'This is TodoItem Title 3', done: false },
+    { id: 1664309976791, title: 'This is TodoItem Title 2This is TodoItem Title 2This is TodoItem Title 2This is TodoItem Title 2', done: false },
+    { id: 1664309976792, title: 'This is TodoItem Title 2', done: true },
+    { id: 1664309976793, title: 'This is TodoItem Title 2', done: false },
+    { id: 1664309976794, title: 'This is TodoItem Title 2', done: false },
+    { id: 1664309976795, title: 'This is TodoItem Title 2', done: true },
+    { id: 1664309976796, title: 'This is TodoItem Title 2', done: true },
+    { id: 1664309976781, title: 'This is TodoItem Title 3', done: false },
+    { id: 1664309976782, title: 'This is TodoItem Title 3', done: false },
+    { id: 1664309976783, title: 'This is TodoItem Title 3', done: false },
+    { id: 1664309976784, title: 'This is TodoItem Title 3', done: true },
+    { id: 1664309976785, title: 'This is TodoItem Title 3', done: false },
+    { id: 1664309976786, title: 'This is TodoItem Title 3', done: false },
     { id: 1664309976797, title: 'This is TodoItem Title 2', done: true },
     { id: 1664309976798, title: 'This is TodoItem Title 1', done: false }
   ]);
@@ -40,17 +52,31 @@ function App() {
   };
 
   return (
-    <div className='app'>
-      <h1 className='app__title visually-hidden'>To-Do List</h1>
-      <OvalButton onClick={() => setModal(true)}>Create Todo</OvalButton>
-      <ModalWindow visible={modal} setVisible={setModal}>
-        <TodoForm create={createTodo} />
-      </ModalWindow>
-      <TodoFilter filter={filter} setFilter={setFilter} />
-      <TodoList remove={removeTodo} toggle={toggleTodo} todos={sortedAndSearchedTodossWithCustomHook} title={'What’s your plan for today?'} />
-      <Counter todos={todos}>Tasks done:</Counter>
-      <OvalButton onClick={removeCompleted}>Remove completed</OvalButton>
-      <OvalButton onClick={() => setTodos([])}>Clear all</OvalButton>
+    <div className='todo'>
+      <div className='todo__inner-wrap'>
+        <div className='todo__inner'>
+          <h1 className='todo__title visually-hidden'>To-Do List</h1>
+
+          <ModalWindow visible={modal} setVisible={setModal}>
+            <TodoForm create={createTodo} />
+          </ModalWindow>
+
+          <TodoFilter filter={filter} setFilter={setFilter} />
+          <TodoList remove={removeTodo} toggle={toggleTodo} todos={sortedAndSearchedTodossWithCustomHook} title={'What’s your plan for today?'} />
+
+          <div className='todo__main-btn'>
+            <OvalButton fill='true' onClick={() => setModal(true)}>Add new task</OvalButton>
+          </div>
+
+          <div className='todo__inner-bottom'>
+            <Counter todos={todos}>Tasks done:</Counter>
+            <div className='todo__inner-bottom-btns'>
+              <OvalButton onClick={removeCompleted}>Remove completed</OvalButton>
+              <OvalButton onClick={() => setTodos([])}>Clear all</OvalButton>
+            </div>
+          </div>
+        </div>
+      </div>
     </div >
   );
 }

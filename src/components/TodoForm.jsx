@@ -19,7 +19,7 @@ const TodoForm = ({ create }) => {
   return (
     <form className='app__form'>
       <input value={todo.title} onChange={e => setTodo({ ...todo, title: e.target.value })} type='text' placeholder='todo Title' />
-      <OvalButton onClick={addNewTodo} >Add todo</OvalButton>
+      <OvalButton fill='true' onClick={addNewTodo} >Add</OvalButton>
     </form>
   );
 };

@@ -14,8 +14,10 @@ const TodoFilter = ({ filter, setFilter }) => {
         defaultValue="Choose"
         options={[
           { value: 'title', name: 'Title' },
-          { value: 'id', name: 'Creation' },
-          { value: 'done', name: 'Сompleted' }
+          { value: 'id-top', name: 'Creation | Top' },
+          { value: 'id', name: 'Creation | Bottom' },
+          { value: 'done-top', name: 'Сompleted | Top' },
+          { value: 'done', name: 'Сompleted | Bottom' }
         ]}
       />
     </div>

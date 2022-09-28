@@ -1,22 +1,37 @@
-.OvalButton {
-  padding: 10px;
-  margin: 5px 0;
+.Button {
   background-color: transparent;
-  border: 1px solid rgb(93, 0, 92);
-  color: rgb(93, 0, 92);
-  font-size: 14px;
-  text-transform: uppercase;
+  padding: 10px 20px;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  font-size: 16px;
+  border-radius: 100px;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.ButtonFill {
+  color: var(--secondary-bg-color);
+  background-color: var(--accent-color);
+  padding: 10px 20px;
+  border: 2px solid var(--accent-color);
+  font-size: 16px;
+  border-radius: 100px;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.ButtonFill:not(:disabled):hover {
   cursor: pointer;
-  transition: all 0.3s ease;
-  min-width: 180px;
+  background-color: var(--secondary-bg-color);
+  color: var(--accent-color);
 }
 
-.OvalButton:not(:disabled):hover {
-  background-color: rgb(93, 0, 92);
-  color: #ffffff;
+.Button:not(:disabled):hover {
+  cursor: pointer;
+  background-color: var(--accent-color);
+  color: var(--secondary-bg-color);
 }
 
-.OvalButton:disabled {
+.ButtonFill:disabled,
+.Button:disabled {
   opacity: 0.5;
   cursor: no-drop;
 }

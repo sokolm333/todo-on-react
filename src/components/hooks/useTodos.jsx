@@ -3,6 +3,10 @@ import { useMemo } from "react";
 export const useSortedTodos = (todos, sort) => {
   const sortedTodos = useMemo(() => {
     if (sort) {
+      if (sort.toLowerCase().includes('top')) {
+        sort = sort.split('-')[0];
+        return [...todos].sort((a, b) => `${a[sort]}`.localeCompare(`${b[sort]}`)).reverse();
+      }
       return [...todos].sort((a, b) => `${a[sort]}`.localeCompare(`${b[sort]}`));
     }
     return todos;

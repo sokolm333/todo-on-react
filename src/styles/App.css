@@ -1,53 +1,193 @@
-/* "Visually hidden" site element */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+:root {
+  --font-family: "Poppins", sans-serif;
+  --primary-bg-color: #f4f7ff;
+  --secondary-bg-color: #fdfeff;
+  --tertiary-bg-color: #f5f9ff;
+  --modal-bg-color: rgba(31, 38, 51, 0.3);
+  --accent-color: #589bff;
+  --box-shadow-color: rgba(31, 47, 89, 0.07);
+  --primary-text-color: #1f2633;
+  --secondary-text-color: #a4a4a4;
+  --transition: 0.3s ease;
 }
 
-body {
-  margin: 0;
-  color: saddlebrown;
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
 }
 
-#root {
-  padding: 10px;
-
-  background-color: #ffffff;
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--primary-bg-color);
+  border-radius: 16px;
 }
 
-.app {
-  width: 800px;
-  padding: 10px 30px 30px;
-  margin: 0 auto;
-  font-family: monospace;
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 16px;
 }
 
-.app__title {
-  display: block;
-  margin: 30px 0 0;
-  padding: 10px;
-  border: 2px solid saddlebrown;
-  text-align: center;
-}
-
-.app__form {
+.todo {
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  justify-content: space-between;
-  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-bg-color);
+  font-family: var(--font-family);
+  color: var(--primary-text-color);
 }
 
-.app__no-todos {
+.todo__title {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.3;
   text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  padding-bottom: 30px;
-  border-bottom: 2px solid saddlebrown;
+  margin-bottom: 15px;
+}
+
+.todo__inner-wrap {
+  padding: 35px;
+  margin: 30px;
+  width: 700px;
+  height: 90vh;
+  overflow: auto;
+  background-color: var(--secondary-bg-color);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo__main-btn {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.todo__main-btn button {
+  width: 100%;
+}
+
+.todo__inner-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo__inner-bottom-btns button:not(:last-of-type) {
+  margin-right: 15px;
+}
+
+.todo__counter {
+  color: var(--secondary-text-color);
+  margin-right: 15px;
+}
+
+.todo__list-wrap {
+}
+
+.todo__list {
+  height: 50vh;
+  overflow: auto;
+  margin-bottom: 5px;
+}
+
+.todo__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 15px;
+  margin: 0 5px 10px;
+  box-shadow: 0px 2px 4px var(--box-shadow-color);
+  border-radius: 12px;
+  transition: background-color var(--transition), box-shadow var(--transition);
+}
+
+.todo__item:hover {
+  box-shadow: 0px 2px 4px var(--accent-color);
+}
+
+.todo__item--done {
+  background-color: var(--tertiary-bg-color);
+}
+
+.todo__item--done .todo__item-title {
+  text-decoration: line-through;
+  color: var(--secondary-text-color);
+}
+
+.todo__item--done .todo__btn {
+  color: var(--secondary-text-color);
+}
+
+.todo__item:not(.todo__item--done) .todo__btn-tick:hover {
+  color: var(--secondary-bg-color);
+  border-color: var(--accent-color);
+  background-color: var(--accent-color);
+}
+
+.todo__item.todo__item--done .todo__btn-tick {
+  color: var(--tertiary-bg-color);
+  border-color: var(--secondary-text-color);
+  background-color: var(--secondary-text-color);
+}
+
+.todo__content {
+  margin-right: 20px;
+}
+
+.todo__item-title {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.5;
+  transition: color var(--transition);
+}
+
+.todo__btns-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo__btn-tick,
+.todo__btn {
+  background-color: transparent;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo__btn-tick {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  margin-right: 15px;
+  border: 2px solid var(--primary-text-color);
+  transition: color var(--transition), border-color var(--transition), background-color var(--transition);
+}
+
+.todo__btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  transition: color var(--transition);
+}
+
+.todo__item .todo__btn:hover {
+  color: var(--accent-color);
+}
+
+.todo__btn-tick-svg {
+  width: 63%;
+  height: 63%;
+}
+
+.todo__btn-svg {
+  width: 100%;
+  height: 100%;
 }

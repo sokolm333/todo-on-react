@@ -1,10 +1,10 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Counter = ({ children, todos, ...props }) => {
   const [countTodos, setCountTodos] = useState(0);
   const [countDoneTodos, setCountDoneTodos] = useState(0);
 
-  useMemo(() => {
+  useEffect(() => {
     let conutDone = 0;
     setCountTodos(0);
     setCountDoneTodos(0);
@@ -17,14 +17,12 @@ const Counter = ({ children, todos, ...props }) => {
       setCountTodos(index + 1);
       setCountDoneTodos(conutDone);
     });
-
-    return todos;
   }, [todos]);
 
   return (
-    <div {...props}>
-      {children} {countTodos}/{countDoneTodos}
-    </div>
+    <p className='todo__counter' {...props}>
+      <span className='todo__counter-text'>{children}</span> {countTodos}/{countDoneTodos}
+    </p>
   );
 };
 

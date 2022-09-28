@@ -10,15 +10,17 @@ const TodoList = ({ todos, title, remove, toggle }) => {
   }
 
   return (
-    <div>
-      <h2 className='app__title'>
+    <div className='todo__list-wrap'>
+      <h2 className='todo__title'>
         {title}
       </h2>
-      {
-        todos.map((todoValue, index) =>
-          <TodoItem remove={remove} toggle={toggle} number={index + 1} todo={todoValue} key={todoValue.id} />
-        )
-      }
+      <ul className='todo__list'>
+        {
+          todos.map((todoValue, index) =>
+            <TodoItem remove={remove} toggle={toggle} number={index + 1} todo={todoValue} key={todoValue.id} />
+          )
+        }
+      </ul>
     </div>
   );
 };
