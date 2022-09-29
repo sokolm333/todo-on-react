@@ -2,7 +2,8 @@
 
 Application preview: [https://sokolm333.github.io/todo-on-react/](https://sokolm333.github.io/todo-on-react/)
 
-![Запись экрана 2022-09-29 в 13 39 58 (1)](https://user-images.githubusercontent.com/80850812/193011381-18d4a689-1c7a-4c8d-939e-24ecaf1d57fc.gif)
+![Application Desktop Preview](https://user-images.githubusercontent.com/80850812/193029694-10c895ac-76cf-4838-aab5-4a224ba7d840.gif)
+![Application Mobile Preview](https://user-images.githubusercontent.com/80850812/193029809-59cc21c7-9efc-41a7-b7d6-c57b5e84e71f.gif)
 
 ---
 
