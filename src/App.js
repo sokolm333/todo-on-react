@@ -51,9 +51,10 @@ function App() {
 
   return (
     <div className='todo'>
+      <h1 className='todo__title visually-hidden'>To-Do List</h1>
+
       <div className='todo__inner-wrap'>
         <div className='todo__inner'>
-          <h1 className='todo__title visually-hidden'>To-Do List</h1>
           <h2 className='todo__title'>What’s your plan for today?</h2>
 
           <ModalWindow visible={modal} setVisible={setModal}>

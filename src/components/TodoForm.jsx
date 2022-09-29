@@ -33,7 +33,7 @@ const TodoForm = ({ visible, create, ...props }) => {
     formInput.current.focus();
   }
 
-  if (formInput.current.value == '') {
+  if (formInput.current !== undefined && formInput.current.value == '') {
     formAddBtn.current.disabled = true;
   }
 
