@@ -11,43 +11,23 @@ import Counter from './components/UI/counter/Counter';
 import { useTodos } from './components/hooks/useTodos';
 
 function App() {
-  const [todos, setTodos] = useState([
-    // { id: 1664309976799, title: 'This is TodoItem Title 3', done: false },
-    // { id: 1664309976791, title: 'This is TodoItem Title 2This is TodoItem Title 2This is TodoItem Title 2This is TodoItem Title 2', done: false },
-    // { id: 1664309976792, title: 'This is TodoItem Title 2', done: true },
-    // { id: 1664309976793, title: 'This is TodoItem Title 2', done: false },
-    // { id: 1664309976794, title: 'This is TodoItem Title 2', done: false },
-    // { id: 1664309976795, title: 'This is TodoItem Title 2', done: true },
-    // { id: 1664309976796, title: 'This is TodoItem Title 2', done: true },
-    // { id: 1664309976781, title: 'This is TodoItem Title 3', done: false },
-    // { id: 1664309976782, title: 'This is TodoItem Title 3', done: false },
-    // { id: 1664309976783, title: 'This is TodoItem Title 3', done: false },
-    // { id: 1664309976784, title: 'This is TodoItem Title 3', done: true },
-    // { id: 1664309976785, title: 'This is TodoItem Title 3', done: false },
-    // { id: 1664309976786, title: 'This is TodoItem Title 3', done: false },
-    // { id: 1664309976797, title: 'This is TodoItem Title 2', done: true },
-    // { id: 1664309976798, title: 'This is TodoItem Title 1', done: false }
-  ]);
+  const [todos, setTodos] = useState(
+    JSON.parse(localStorage.getItem('arrayOfTodos')) || [
+      { id: 1664309976791, done: false, title: 'React Hooks' },
+      { id: 1664309976792, done: false, title: 'Custom React Hooks' },
+      { id: 1664309976793, done: false, title: 'Local Storage' },
+      { id: 1664309976794, done: true, title: 'Function Components' },
+      { id: 1664309976796, done: true, title: 'Sorting' },
+      { id: 1664309976795, done: false, title: 'Filtration' }
+    ]
+  );
   const [filter, setFilter] = useState({ sort: '', query: '' });
   const [modal, setModal] = useState(false);
   const sortedAndSearchedTodossWithCustomHook = useTodos(todos, filter.sort, filter.query);
 
-  // let todosStorage = localStorage.getItem('arrayOfTodos');
-  // if (todosStorage) {
-  //   console.log('todosStorage');
-  // }
-
-  // useEffect(() => {
-  //   console.log('pullToLocalStorage');
-  //   // console.log(JSON.stringify(todos));
-  //   localStorage.setItem('arrayOfTodos', JSON.stringify(todos));
-  //   // console.log(JSON.parse(localStorage.getItem('arrayOfTodos')));
-  //   // array
-  //   //     localStorage.removeItem('active_tab');
-  //   // localStorage.setItem('active_tab', activePane.id);
-  //   // let tabStorage = localStorage.getItem('active_tab');
-  //   // if (tabStorage) {
-  // }, [todos]);
+  useEffect(() => {
+    localStorage.setItem('arrayOfTodos', JSON.stringify(todos));
+  }, [todos]);
 
   const createTodo = (newTodo) => {
     setTodos([...todos, newTodo]);
