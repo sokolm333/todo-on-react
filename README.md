@@ -1,8 +1,12 @@
+# To-Do List React App by Mary
+
+Application preview:
+
 ![Запись экрана 2022-09-29 в 13 39 58 (1)](https://user-images.githubusercontent.com/80850812/193011381-18d4a689-1c7a-4c8d-939e-24ecaf1d57fc.gif)
 
 ---
 
-# Getting Started with Create React App
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
