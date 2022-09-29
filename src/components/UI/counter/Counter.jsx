@@ -21,7 +21,7 @@ const Counter = ({ children, todos, ...props }) => {
 
   return (
     <p className='todo__counter' {...props}>
-      <span className='todo__counter-text'>{children}</span> {countTodos}/{countDoneTodos}
+      <span className='todo__counter-text'>{children}</span> {countDoneTodos}/{countTodos}
     </p>
   );
 };
