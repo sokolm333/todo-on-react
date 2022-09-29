@@ -1,6 +1,6 @@
 # To-Do List React App by Mary
 
-Application preview:
+Application preview: [https://sokolm333.github.io/todo-on-react/](https://sokolm333.github.io/todo-on-react/)
 
 ![Запись экрана 2022-09-29 в 13 39 58 (1)](https://user-images.githubusercontent.com/80850812/193011381-18d4a689-1c7a-4c8d-939e-24ecaf1d57fc.gif)
 
