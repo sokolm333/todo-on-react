@@ -10,12 +10,14 @@ const Counter = ({ children, todos, ...props }) => {
     setCountDoneTodos(0);
 
     todos.map((todo, index) => {
-      if (todo.done == true) {
+      if (todo.done) {
         conutDone++;
       }
 
       setCountTodos(index + 1);
       setCountDoneTodos(conutDone);
+
+      return todo;
     });
   }, [todos]);
 

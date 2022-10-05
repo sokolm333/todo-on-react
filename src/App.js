@@ -39,7 +39,7 @@ function App() {
   };
 
   const removeCompleted = () => {
-    setTodos(todos.filter(todo => todo.done !== true));
+    setTodos(todos.filter(todo => !todo.done));
   };
 
   const toggleTodo = (todoToToggle) => {
