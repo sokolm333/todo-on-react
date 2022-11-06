@@ -7,6 +7,11 @@ Application preview: [https://sokolm333.github.io/todo-on-react/](https://sokolm
 
 ---
 
+## NODE & NPM VERSIONS
+
+- node -> v16.3.0
+- npm -> 6.14.17
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
