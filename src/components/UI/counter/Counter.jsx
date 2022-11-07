@@ -9,7 +9,7 @@ const Counter = ({ children, todos, ...props }) => {
     setCountTodos(0);
     setCountDoneTodos(0);
 
-    todos.map((todo, index) => {
+    Object.values(todos).map((todo, index) => {
       if (todo.done) {
         conutDone++;
       }

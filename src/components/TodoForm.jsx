@@ -1,22 +1,27 @@
 import React, { useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import OvalButton from './UI/button/OvalButton';
 
-const TodoForm = ({ visible, create, ...props }) => {
-  const [todoInput, setTodoInput] = useState({ done: false, title: '' });
+const TodoForm = ({ visible, setVisible, ...props }) => {
+  const dispatch = useDispatch();
+  const [todoInput, setTodoInput] = useState({ title: '' });
   const formInput = useRef();
   const formAddBtn = useRef();
 
   const addNewTodo = (e) => {
     e.preventDefault();
 
-    let newTodo = {
-      id: Date.now(),
-      done: false,
-      ...todoInput
-    };
+    dispatch({
+      type: "ADD_TODO",
+      payload: {
+        id: Date.now(),
+        done: false,
+        ...todoInput
+      }
+    })
 
-    create(newTodo);
-    setTodoInput({ done: false, title: '' });
+    setTodoInput({ title: '' });
+    setVisible(false);
   }
 
   const inputOnChange = (e) => {
