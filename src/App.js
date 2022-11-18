@@ -20,7 +20,7 @@ function App() {
 
   const removeCompleted = () => {
     dispatch({
-      type: "REMOVE_COMPLERED_TODO"
+      type: "REMOVE_COMPLETED_TODO"
     })
   }
 

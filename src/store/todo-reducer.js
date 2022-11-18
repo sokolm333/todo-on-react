@@ -35,7 +35,7 @@ export const todoReducer = (state = defaultState, action) => {
           ...state.todosArr.filter(todo => todo.id !== removeTodo.id)
         ]
       }
-    case "REMOVE_COMPLERED_TODO":
+    case "REMOVE_COMPLETED_TODO":
       return {
         todosArr: [
           ...state.todosArr.filter(todo => !todo.done)
